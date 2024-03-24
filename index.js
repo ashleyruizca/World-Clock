@@ -3,12 +3,11 @@ function updateTime() {
   if (atlantaElement) {
     let atlantaDateElement = atlantaElement.querySelector(".date");
     let atlantaTimeElement = atlantaElement.querySelector(".time");
+    let atlantaTime = moment().tz("America/Atlanta");
 
-    let atlantaTime = moment().tz("America / Atlanta");
-
-    atlantaDateElement.innerHTML = atlantaTime.format("MMMM Do YYYY");
+    atlantaDateElement.innerHTML = atlantaTime.format("MMMM	Do YYYY");
     atlantaTimeElement.innerHTML = atlantaTime.format(
-      "h:mm:ss [<small>]A[</small]"
+      "h:mm:ss [<small>]A[</small>]"
     );
   }
 
@@ -16,12 +15,11 @@ function updateTime() {
   if (tokyoElement) {
     let tokyoDateElement = tokyoElement.querySelector(".date");
     let tokyoTimeElement = tokyoElement.querySelector(".time");
+    let tokyoTime = moment().tz("Europe/Paris");
 
-    let tokyoTime = moment().tz("Asia/Tokyo");
-
-    tokyoDateElement.innerHTML = tokyoTime.format("MMMM Do YYYY");
+    tokyoDateElement.innerHTML = tokyoTime.format("MMMM	Do YYYY");
     tokyoTimeElement.innerHTML = tokyoTime.format(
-      "h:mm:ss [<small>]A[</small]"
+      "h:mm:ss [<small>]A[</small>]"
     );
   }
 }
@@ -36,15 +34,15 @@ function updateCity(event) {
   let citiesElement = document.querySelector("#cities");
   citiesElement.innerHTML = `
   <div class="city">
-          <div>
-            <h2>${cityName}</h2>
-            <div class="date">${cityTime.format("MMMM Do YYYY")}</div>
-          </div>
-          <div class="time">${cityTime.format(
-            "h:mm:ss"
-          )} <small>${cityTime.format("A")} </small></div>
-        </div>
-        <a href="/">All Cities</a>
+    <div>
+      <h2>${cityName}</h2>
+      <div class="date">${cityTime.format("MMMM	Do YYYY")}</div>
+    </div>
+    <div class="time">${cityTime.format("h:mm:ss")} <small>${cityTime.format(
+    "A"
+  )}</small></div>
+  </div>
+  <a href="/">All cities</a>
   `;
 }
 
@@ -53,6 +51,3 @@ setInterval(updateTime, 1000);
 
 let citiesSelectElement = document.querySelector("#city");
 citiesSelectElement.addEventListener("change", updateCity);
-
-updateCity();
-setInterval(updateCity, 1000);

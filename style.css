@@ -1,8 +1,14 @@
 body {
   background-color: #f9f7fe;
+  background: #f9ecec;
+}
+
+#cities {
+  font-family: "Short Stack", cursive;
 }
 
 h1 {
+  font-family: "Courgette", cursive;
   text-align: center;
   font-size: 36px;
 }
@@ -22,7 +28,7 @@ select {
 
 .container {
   max-width: 600px;
-  background: white;
+  background-color: white;
   padding: 30px;
   margin: 60px auto;
   border-radius: 10px;
